@@ -66,27 +66,24 @@ class Escribano(QtGui.QWidget):
 		aboutAction = QtGui.QAction('About', self)        
 		aboutAction.triggered.connect(self.aboutFuc)
 		
-		
-		temas = toolMenu.addMenu("Styles")
-		
-		
+		themes = toolMenu.addMenu("Styles")
 		estilo1Action = QtGui.QAction('Theme gray', self)
-		estilo1Action.setShortcut("Ctrl+X") #Atajo de teclado
-		estilo1Action.setStatusTip("Buscar") #Mensaje en la barra de estado
+		estilo1Action.setShortcut("Ctrl+X") 
+		estilo1Action.setStatusTip("Buscar")
 		estilo1Action.triggered.connect(self.estilo1)
-		temas.addAction(estilo1Action)
+		themes.addAction(estilo1Action)
 		
 		estilo2Action = QtGui.QAction('Theme blue', self)
-		estilo2Action.setShortcut("Ctrl+X") #Atajo de teclado
-		estilo2Action.setStatusTip("theme blue") #Mensaje en la barra de estado
+		estilo2Action.setShortcut("Ctrl+X")
+		estilo2Action.setStatusTip("theme blue")
 		estilo2Action.triggered.connect(self.estilo2)
-		temas.addAction(estilo2Action)
+		themes.addAction(estilo2Action)
 		
 		estilo3Action = QtGui.QAction('Theme green', self)
-		estilo3Action.setShortcut("Ctrl+X") #Atajo de teclado
-		estilo3Action.setStatusTip("theme green") #Mensaje en la barra de estado
+		estilo3Action.setShortcut("Ctrl+X")
+		estilo3Action.setStatusTip("theme green")
 		estilo3Action.triggered.connect(self.estilo3)
-		temas.addAction(estilo3Action)
+		themes.addAction(estilo3Action)
 		
 		fileMenu.addAction(newfile)
 		fileMenu.addAction(openfile)
@@ -112,7 +109,6 @@ class Escribano(QtGui.QWidget):
 		self.move(fg.topLeft())
 		self.show()
 		
-		#Estilos
 		self.setStyleSheet("background-color:  #e0e0d1;")
 		self.webView.setStyleSheet("background-color:  #ffffff;")
 		self.textEdit.setStyleSheet("background-color:  #ffffff;")
@@ -161,10 +157,8 @@ class Escribano(QtGui.QWidget):
 		fil.write('\t<head>\n')
 		fil.write('\t\t<title>Escribano </title>\n')
 		fil.write('\t\t<link href="'+NESTILO+'" rel="stylesheet" type="text/css">\n')
-		#fil.write('<link href="especial.css" rel="stylesheet" type="text/css">\n')
 		fil.write('\t</head>\n')
 		fil.write('\t<body>\n')
-		#fil.write('\t\t<hr width=50% align="center">')
 		fil.write(html)
 		fil.write('\n\t</body>\n')
 		fil.write('</html>\n')
