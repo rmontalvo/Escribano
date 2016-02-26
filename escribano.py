@@ -33,13 +33,6 @@ class Escribano(QtGui.QWidget):
 		fileMenu = self.myMenuBar.addMenu('File')
 		toolMenu = self.myMenuBar.addMenu('Tools')
 		helpMenu = self.myMenuBar.addMenu('Help')
-		
-		#menu_archivo_abrir.setShortcut("Ctrl+o") #Atajo de teclado
-		#menu_archivo_abrir.setStatusTip("Abrir") #Mensaje en la barra de estado
-		#menu_archivo_abrir.triggered.connect(self.menuArchivoAbrir) #Lanzador
-		#menu_archivo.addAction(menu_archivo_abrir)
-		
-
 	
 		newfile = QtGui.QAction('New File', self)
 		newfile.setShortcut('Ctrl+N')
