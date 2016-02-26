@@ -1,0 +1,40 @@
+body {
+    background-color:  #ffffff;
+}
+
+h1 {
+    color: #ffff00;
+	text-align: center;
+
+}
+
+h2 {
+    color: #000000;
+	text-align: left;
+
+}
+
+h3 {
+    color: #000000;
+	text-align: left;
+}
+
+h4 {
+    color: #000000;
+	text-align: left;
+}
+
+h5 {
+    color: #000000;
+	text-align: left;
+}
+
+h6 {
+    color: #000000;
+	text-align: left;
+}
+
+p {
+    color:#333333;
+    text-align: justify
+}
