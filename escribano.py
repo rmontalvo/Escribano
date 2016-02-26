@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 import sys, markdown2
 from PyQt4 import QtCore
 from PyQt4 import QtGui
@@ -26,8 +27,7 @@ class Escribano(QtGui.QWidget):
 		self.textEdit = QtGui.QTextEdit(self)
 		QtCore.QObject.connect(self.textEdit,
 			QtCore.SIGNAL('textChanged()'), self.onTextChanged)
-		#self.setMinimumWidth(1000)
-		#self.setMinimumHeight(1000)
+		
 		self.myMenuBar = QtGui.QMenuBar(self)		
 		
 		fileMenu = self.myMenuBar.addMenu('File')
