@@ -28,56 +28,80 @@ class Escribano(QtGui.QWidget):
 			QtCore.SIGNAL('textChanged()'), self.onTextChanged)
 		#self.setMinimumWidth(1000)
 		#self.setMinimumHeight(1000)
-		self.myMenuBar = QtGui.QMenuBar(self)
+		self.myMenuBar = QtGui.QMenuBar(self)		
 		
 		fileMenu = self.myMenuBar.addMenu('File')
 		toolMenu = self.myMenuBar.addMenu('Tools')
 		helpMenu = self.myMenuBar.addMenu('Help')
 		
+		#menu_archivo_abrir.setShortcut("Ctrl+o") #Atajo de teclado
+		#menu_archivo_abrir.setStatusTip("Abrir") #Mensaje en la barra de estado
+		#menu_archivo_abrir.triggered.connect(self.menuArchivoAbrir) #Lanzador
+		#menu_archivo.addAction(menu_archivo_abrir)
 		
+
+	
 		newfile = QtGui.QAction('New File', self)
+		newfile.setShortcut('Ctrl+N')
+		newfile.setStatusTip('New file')
 		newfile.triggered.connect(self.newFile)
 		
 		openfile = QtGui.QAction('Open File', self)        
+		openfile.setShortcut('Ctrl+O')        
+		openfile.setStatusTip('Open file')        
 		openfile.triggered.connect(self.openFile)
 
 		saveFile = QtGui.QAction('Save File', self)        
+		saveFile.setShortcut('Ctrl+S')        
+		saveFile.setStatusTip('Save file')        
 		saveFile.triggered.connect(self.saveFile)
 
 		exportPDF = QtGui.QAction('Export as PDF', self)        
 		exportPDF.triggered.connect(self.exportPDF)
 		
-		exitAction = QtGui.QAction('Quit', self)        
-		exitAction.triggered.connect(self.closeEvent)
+		quitAction = QtGui.QAction('Quit', self)        
+		quitAction.setShortcut('Ctrl+Q')        
+		quitAction.triggered.connect(self.closeEvent)
 		
 		landAction = QtGui.QAction('Orientacion ', self)        
 		landAction.triggered.connect(self.paintEvent)
 		
 		helpAction = QtGui.QAction('Help', self)        
+		helpAction.setShortcut('F1')        
 		helpAction.triggered.connect(self.helpFuc)
 		
 		aboutAction = QtGui.QAction('About', self)        
 		aboutAction.triggered.connect(self.aboutFuc)
 		
+		
+		temas = toolMenu.addMenu("Styles")
+		
+		
 		estilo1Action = QtGui.QAction('Theme gray', self)
+		estilo1Action.setShortcut("Ctrl+X") #Atajo de teclado
+		estilo1Action.setStatusTip("Buscar") #Mensaje en la barra de estado
 		estilo1Action.triggered.connect(self.estilo1)
+		temas.addAction(estilo1Action)
 		
-		estilo2Action = QtGui.QAction('Theme blue', self)        
+		estilo2Action = QtGui.QAction('Theme blue', self)
+		estilo2Action.setShortcut("Ctrl+X") #Atajo de teclado
+		estilo2Action.setStatusTip("theme blue") #Mensaje en la barra de estado
 		estilo2Action.triggered.connect(self.estilo2)
+		temas.addAction(estilo2Action)
 		
-		estilo3Action = QtGui.QAction('Them green', self)        
+		estilo3Action = QtGui.QAction('Theme green', self)
+		estilo3Action.setShortcut("Ctrl+X") #Atajo de teclado
+		estilo3Action.setStatusTip("theme green") #Mensaje en la barra de estado
 		estilo3Action.triggered.connect(self.estilo3)
+		temas.addAction(estilo3Action)
 		
 		fileMenu.addAction(newfile)
 		fileMenu.addAction(openfile)
 		fileMenu.addAction(saveFile)
 		fileMenu.addAction(exportPDF)
-		fileMenu.addAction(exitAction)
+		fileMenu.addAction(quitAction)
 		helpMenu.addAction(helpAction)
 		helpMenu.addAction(aboutAction)
-		toolMenu.addAction(estilo1Action)
-		toolMenu.addAction(estilo2Action)
-		toolMenu.addAction(estilo3Action)
 		
 		self.webView = QtWebKit.QWebView(self)
 		self.webView.load(QtCore.QUrl('front.html'))
@@ -96,7 +120,7 @@ class Escribano(QtGui.QWidget):
 		self.show()
 		
 		#Estilos
-		self.setStyleSheet("background-color:  #99c2ff;")
+		self.setStyleSheet("background-color:  #e0e0d1;")
 		self.webView.setStyleSheet("background-color:  #ffffff;")
 		self.textEdit.setStyleSheet("background-color:  #ffffff;")
 
